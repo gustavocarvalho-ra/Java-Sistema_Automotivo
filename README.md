@@ -230,11 +230,3 @@ git branch -M main
 git remote add origin URL_DO_REPOSITORIO
 git push -u origin main
 ```
-
-No vídeo pitch, mostre:
-
-1. Projeto aberto na IDE.
-2. Banco de dados criado no MySQL.
-3. API rodando com `mvn spring-boot:run`.
-4. Teste dos endpoints no Postman ou Insomnia.
-5. Demonstração de criar, listar, filtrar, atualizar e remover veículo.
