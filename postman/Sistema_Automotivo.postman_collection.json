@@ -1,0 +1,241 @@
+{
+  "info": {
+    "name": "Sistema Automotivo - CRUD",
+    "description": "Colecao para testar a API REST de gestao de estoque de veiculos.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "http://localhost:8080/api",
+      "type": "string"
+    }
+  ],
+  "item": [
+    {
+      "name": "Marcas",
+      "item": [
+        {
+          "name": "Listar marcas",
+          "request": {
+            "method": "GET",
+            "url": "{{baseUrl}}/marcas"
+          }
+        },
+        {
+          "name": "Buscar marca por ID",
+          "request": {
+            "method": "GET",
+            "url": "{{baseUrl}}/marcas/1"
+          }
+        },
+        {
+          "name": "Cadastrar marca",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"nome\": \"Nissan\"\n}"
+            },
+            "url": "{{baseUrl}}/marcas"
+          }
+        },
+        {
+          "name": "Atualizar marca",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"nome\": \"Nissan Atualizada\"\n}"
+            },
+            "url": "{{baseUrl}}/marcas/1"
+          }
+        },
+        {
+          "name": "Remover marca",
+          "request": {
+            "method": "DELETE",
+            "url": "{{baseUrl}}/marcas/1"
+          }
+        }
+      ]
+    },
+    {
+      "name": "Modelos",
+      "item": [
+        {
+          "name": "Listar modelos",
+          "request": {
+            "method": "GET",
+            "url": "{{baseUrl}}/modelos"
+          }
+        },
+        {
+          "name": "Listar modelos por marca",
+          "request": {
+            "method": "GET",
+            "url": "{{baseUrl}}/modelos?marcaId=1"
+          }
+        },
+        {
+          "name": "Buscar modelo por ID",
+          "request": {
+            "method": "GET",
+            "url": "{{baseUrl}}/modelos/1"
+          }
+        },
+        {
+          "name": "Cadastrar modelo",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"nome\": \"Kicks\",\n  \"marcaId\": 1\n}"
+            },
+            "url": "{{baseUrl}}/modelos"
+          }
+        },
+        {
+          "name": "Atualizar modelo",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"nome\": \"Corolla Cross\",\n  \"marcaId\": 1\n}"
+            },
+            "url": "{{baseUrl}}/modelos/1"
+          }
+        },
+        {
+          "name": "Remover modelo",
+          "request": {
+            "method": "DELETE",
+            "url": "{{baseUrl}}/modelos/1"
+          }
+        }
+      ]
+    },
+    {
+      "name": "Veiculos",
+      "item": [
+        {
+          "name": "Listar veiculos",
+          "request": {
+            "method": "GET",
+            "url": "{{baseUrl}}/veiculos"
+          }
+        },
+        {
+          "name": "Filtrar veiculos disponiveis",
+          "request": {
+            "method": "GET",
+            "url": "{{baseUrl}}/veiculos?status=DISPONIVEL"
+          }
+        },
+        {
+          "name": "Filtrar por preco",
+          "request": {
+            "method": "GET",
+            "url": "{{baseUrl}}/veiculos?precoMin=70000&precoMax=130000"
+          }
+        },
+        {
+          "name": "Buscar veiculo por ID",
+          "request": {
+            "method": "GET",
+            "url": "{{baseUrl}}/veiculos/1"
+          }
+        },
+        {
+          "name": "Cadastrar veiculo",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"modeloId\": 1,\n  \"anoFabricacao\": 2024,\n  \"cor\": \"Branco\",\n  \"preco\": 98000.00,\n  \"quilometragem\": 5000,\n  \"status\": \"DISPONIVEL\"\n}"
+            },
+            "url": "{{baseUrl}}/veiculos"
+          }
+        },
+        {
+          "name": "Atualizar veiculo completo",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"modeloId\": 1,\n  \"anoFabricacao\": 2023,\n  \"cor\": \"Prata\",\n  \"preco\": 119900.00,\n  \"quilometragem\": 27000,\n  \"status\": \"DISPONIVEL\"\n}"
+            },
+            "url": "{{baseUrl}}/veiculos/1"
+          }
+        },
+        {
+          "name": "Atualizar veiculo parcialmente",
+          "request": {
+            "method": "PATCH",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"preco\": 115000.00,\n  \"quilometragem\": 30000,\n  \"status\": \"RESERVADO\"\n}"
+            },
+            "url": "{{baseUrl}}/veiculos/1"
+          }
+        },
+        {
+          "name": "Atualizar status para vendido",
+          "request": {
+            "method": "PATCH",
+            "url": "{{baseUrl}}/veiculos/1/status?status=VENDIDO"
+          }
+        },
+        {
+          "name": "Remover veiculo",
+          "request": {
+            "method": "DELETE",
+            "url": "{{baseUrl}}/veiculos/1"
+          }
+        }
+      ]
+    }
+  ]
+}
