@@ -217,16 +217,3 @@ Modelo 1:N Veiculo
 ```
 
 Uma marca pode ter vários modelos. Um modelo pode ter vários veículos. Cada veículo pertence a um único modelo.
-
-## Observações para entrega acadêmica
-
-Para entregar no GitHub:
-
-```bash
-git init
-git add .
-git commit -m "Sistema automotivo CRUD"
-git branch -M main
-git remote add origin URL_DO_REPOSITORIO
-git push -u origin main
-```
